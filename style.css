@@ -1,6 +1,6 @@
 :root {
     /* Cores do tema escuro */
-    --bg-color-dark: #232323; /* Fundo principal escuro */
+    --bg-color-white: #2196F3; /* Fundo principal escuro */
     --shadow-dark-1: #383838; /* Sombra/Luz mais clara (Superior Esquerdo) */
     --shadow-dark-2: #141414; /* Sombra mais escura (Inferior Direito) */
     --dark-text-color: #ddd; /* Cor do texto no tema escuro */
