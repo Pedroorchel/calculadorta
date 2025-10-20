@@ -1,0 +1,111 @@
+:root {
+    /* Cores do tema escuro */
+    --bg-color-dark: #232323; /* Fundo principal escuro */
+    --shadow-dark-1: #383838; /* Sombra/Luz mais clara (Superior Esquerdo) */
+    --shadow-dark-2: #141414; /* Sombra mais escura (Inferior Direito) */
+    --dark-text-color: #ddd; /* Cor do texto no tema escuro */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--bg-color-dark); 
+    font-family: Arial, sans-serif;
+}
+
+.calculator-body {
+    width: 320px;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: var(--bg-color-dark); 
+    color: var(--dark-text-color);
+    /* Sombra principal do corpo */
+    box-shadow: 15px 15px 30px var(--shadow-dark-2), 
+                -15px -15px 30px var(--shadow-dark-1);
+}
+
+/* --- Display --- */
+.display {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    /* Efeito de concavidade (afundado) */
+    box-shadow: inset 5px 5px 10px var(--shadow-dark-2), 
+                inset -5px -5px 10px var(--shadow-dark-1);
+}
+
+#result {
+    width: 100%;
+    border: none;
+    background: transparent;
+    text-align: right;
+    font-size: 2.5em;
+    color: var(--dark-text-color);
+    outline: none;
+}
+
+/* --- Grade de Botões --- */
+.buttons-grid {
+    display: grid;
+    /* 4 colunas para o layout principal (Clear, /, *, -, e as 3 colunas de números) */
+    grid-template-columns: repeat(4, 1fr); 
+    /* 5 linhas para o layout (Clear, 7-9, 4-6, 1-3, 0-.) */
+    grid-template-rows: repeat(5, 1fr);
+    gap: 15px;
+    height: 330px; /* Altura fixa para manter as células quadradas */
+}
+
+button {
+    height: 100%; /* Ocupa a altura total da célula */
+    border: none;
+    border-radius: 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: var(--bg-color-dark); 
+    color: var(--dark-text-color);
+    /* Efeito de convexidade (relevo) */
+    box-shadow: 5px 5px 15px var(--shadow-dark-2), 
+                -5px -5px 15px var(--shadow-dark-1);
+    transition: all 0.2s ease;
+}
+
+/* Efeito de "clique" (botão pressionado) */
+button:active {
+    box-shadow: inset 3px 3px 7px var(--shadow-dark-2), 
+                inset -3px -3px 7px var(--shadow-dark-1);
+    color: #fff;
+}
+
+/* --- Posicionamento Exato dos Botões Especiais --- */
+
+/* Botão Clear (Canto superior esquerdo - Linha 1, Coluna 1) */
+.clear-btn {
+    background-color: #e53935; /* Vermelho */
+    color: white;
+}
+.clear-btn:active {
+    background-color: #c62828;
+}
+
+/* Botão Soma (+) - Ocupa Linhas 2 e 3, Coluna 4 */
+.plus-btn {
+    grid-area: 2 / 4 / span 2 / span 1; /* Inicia na linha 2, coluna 4 e ocupa 2 linhas e 1 coluna */
+    background-color: #43a047; /* Verde */
+    color: white;
+}
+.plus-btn:active {
+    background-color: #388e3c;
+}
+
+/* Botão Igual (=) - Ocupa Linhas 4 e 5, Coluna 4 */
+.equal-btn {
+    grid-area: 4 / 4 / span 2 / span 1; /* Inicia na linha 4, coluna 4 e ocupa 2 linhas e 1 coluna */
+    background-color: #1e88e5; /* Azul */
+    color: white;
+}
+.equal-btn:active {
+    background-color: #1565c0;
+}
